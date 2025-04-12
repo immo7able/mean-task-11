@@ -1,0 +1,60 @@
+.notification {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    color: #fff;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    min-width: 250px;
+    max-width: 400px;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Типы уведомлений */
+.success {
+    background-color: #16a34a; /* green-600 */
+}
+
+.error {
+    background-color: #dc2626; /* red-600 */
+}
+
+.info {
+    background-color: #2563eb; /* blue-600 */
+}
+
+.warning {
+    background-color: #d97706; /* amber-600 */
+}
+
+.closeButton {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1.2rem;
+    margin-left: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.closeButton:hover {
+    transform: scale(1.2);
+}
+
+/* Анимация появления */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
