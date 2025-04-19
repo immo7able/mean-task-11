@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
+    "@uploadthing/react": "^7.3.0",
     "axios": "^1.8.4",
     "bcrypt": "^5.1.1",
     "js-cookie": "^3.0.5",
@@ -20,6 +21,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.55.0",
+    "uploadthing": "^7.6.0",
     "zod": "^3.24.2"
   },
   "devDependencies": {
