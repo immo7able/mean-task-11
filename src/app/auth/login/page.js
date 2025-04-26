@@ -2,7 +2,7 @@
 import {useEffect, useState} from 'react'
 import {useRouter} from 'next/navigation'
 import Cookies from 'js-cookie'
-import {AuthService} from '@/services/auth'
+import {AuthService, isTokenExpired} from '@/services/auth'
 
 export default function LoginPage() {
     const router = useRouter()
@@ -13,7 +13,7 @@ export default function LoginPage() {
     const [error, setError] = useState('')
     useEffect(() => {
         const token = Cookies.get('accessToken')
-        if (token) router.push('/protected/profile')
+        if (token && !isTokenExpired(token)) router.push('/protected/profile')
     }, [])
     const handleChange = (e) => {
         setFormData({...formData, [e.target.name]: e.target.value})
