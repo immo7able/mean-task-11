@@ -1,11 +1,9 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { useRouter, useParams } from 'next/navigation'
-import { PostService } from '@/services/post'
-import { AvatarUploadButton } from '@/components/uploadthing'
-import { UserService } from "@/services/user"
-import { AuthService } from "@/services/auth"
+import {useEffect, useState} from 'react'
+import {useParams, useRouter} from 'next/navigation'
+import {PostService} from '@/services/post'
+import {AvatarUploadButton} from '@/components/uploadthing'
 
 export default function PostForm() {
     const router = useRouter()
@@ -19,7 +17,7 @@ export default function PostForm() {
         if (isEditing) {
             const loadPost = async () => {
                 try {
-                    const { data } = await PostService.getPost(params.id)
+                    const {data} = await PostService.getPost(params.id)
                     setContent(data.content)
                     setImageUrl(data.imageUrl)
                 } catch (err) {
@@ -40,7 +38,10 @@ export default function PostForm() {
         e.preventDefault()
         setLoading(true)
         try {
-            const payload = { content, imageUrl }
+            const payload = {
+                content,
+                imageUrl: imageUrl || null
+            }
             if (isEditing) {
                 await PostService.updatePost(params.id, payload)
             } else {
